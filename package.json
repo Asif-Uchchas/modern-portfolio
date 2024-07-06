@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "tunnel 3000 -- next dev --port PORT",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.108.1",
     "@react-three/fiber": "^8.16.8",
+    "@tunnel/nextjs": "^0.0.12",
     "@types/react-lottie": "^1.2.10",
     "@types/three": "^0.166.0",
     "clsx": "^2.1.1",
