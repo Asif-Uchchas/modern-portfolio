@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./Provider";
+import { TunnelToolbar } from "@tunnel/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,14 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-          </ThemeProvider></body>
+      </ThemeProvider>
+      {process.env.APP_ENV === "staging" && (
+          <TunnelToolbar
+            projectId="PROJECT_ID"
+            branch="BRANCH_NAME"
+          />
+        )}
+      </body>
     </html>
   );
 }

@@ -1,16 +1,17 @@
-"use client";
+'use client'
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
+// Also install this npm i --save-dev @types/react-lottie
+import Lottie from "react-lottie";
+
+import { cn } from "@/utils/cn";
 
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { GlobeDemo } from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
-import { cn } from "@/utils/cn";
-import { Globe } from "./Globe";
-import Lottie from "react-lottie";
 
 export const BentoGrid = ({
   className,
@@ -52,8 +53,8 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["NextJS", "Express", "ReactJS"];
-  const rightLists = ["Angular", ".NET", "SQL"];
+  const leftLists = ["ReactJS", "Express", "Typescript"];
+  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
 
   const [copied, setCopied] = useState(false);
 
@@ -67,7 +68,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "asifuchchas123@gmail.com";
+    const text = "hsu@jsmastery.pro";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -99,9 +100,8 @@ export const BentoGridItem = ({
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          } `}
+          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
+            } `}
         >
           {spareImg && (
             <img
@@ -138,7 +138,7 @@ export const BentoGridItem = ({
           </div>
 
           {/* for the github 3d globe */}
-          {id === 2 && <GlobeDemo/>}
+          {id === 2 && <GlobeDemo />}
 
           {/* Tech stack list div */}
           {id === 3 && (
@@ -177,9 +177,8 @@ export const BentoGridItem = ({
               {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
               {/* add handleCopy() for the copy the text */}
               <div
-                className={`absolute -bottom-5 right-0 ${
-                  copied ? "block" : "block"
-                }`}
+                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
+                  }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
                 <Lottie options={defaultOptions} height={200} width={400} />
